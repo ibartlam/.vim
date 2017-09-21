@@ -29,16 +29,6 @@ syntax enable
 colorscheme slate
 filetype plugin indent on
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-" If linux then set ttymouse
-let s:uname = system("echo -n \"$(uname)\"")
-if !v:shell_error && s:uname == "Linux" && !has('nvim')
-  set ttymouse=xterm
-endif
-
 " pretty-print JSON files
 autocmd BufRead,BufNewFile *.json set filetype=json
 let g:vim_json_syntax_conceal = 0
