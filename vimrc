@@ -45,8 +45,13 @@ set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
 if &diff
-      "I'm only interested in diff colours
-      syntax off
+  "Make vimdiff a bit more readable
+  "Colours taken from https://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff
+  highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+  highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+  highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+  highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+  "syntax off
 endif
 
 " Spell check for git commits
