@@ -57,3 +57,18 @@ endif
 " Spell check for git commits
 autocmd FileType gitcommit setlocal spell
 
+" generate shebang automatically
+augroup Shebang
+  autocmd BufNewFile *.py 0put =\"#!/usr/bin/env python\<nl># -*- coding: utf-8 -*-\<nl>\"|$
+  autocmd BufNewFile *.yml 0put =\"---\<nl>\"|$
+  autocmd BufNewFile *.sh 0put =\"#!/bin/bash\<nl>\"|$
+augroup END
+
+" make executable if shebang
+autocmd BufWritePost * :call AddExecmod()
+function AddExecmod()
+    let line = getline(1)
+    if strpart(line, 0, 2) == "#!"
+        call system("chmod +x ". expand("%"))
+    endif
+endfunction
