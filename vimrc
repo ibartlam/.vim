@@ -23,7 +23,7 @@ set wildmenu        " Show menu with possible tab completions
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:>- ,trail:·
+set list listchars=tab:>-,trail:·
 set t_Co=256
 if (has("termguicolors"))
  set termguicolors
