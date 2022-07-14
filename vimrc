@@ -61,7 +61,7 @@ autocmd FileType gitcommit setlocal spell
 augroup Shebang
   autocmd BufNewFile *.py 0put =\"#!/usr/bin/env python\<nl># -*- coding: utf-8 -*-\<nl>\"|$
   autocmd BufNewFile *.yml 0put =\"---\<nl>\"|$
-  autocmd BufNewFile *.sh 0put =\"#!/bin/bash\<nl>\"|$
+  autocmd BufNewFile *.sh 0put =\"#!/bin/bash\<nl>set -euxo pipefail\<nl>\"|$
 augroup END
 
 " make executable if shebang
